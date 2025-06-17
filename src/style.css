@@ -1,84 +1,307 @@
+/* Variables CSS para temas */
+:root {
+    --bg-primary: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+    --bg-secondary: rgba(20, 20, 20, 0.9);
+    --text-primary: #f4f4f4;
+    --text-secondary: #d4af37;
+    --accent-color: #8b0000;
+    --border-color: #d4af37;
+    --shadow-color: rgba(212, 175, 55, 0.3);
+}
+
+.winter-theme {
+    --bg-primary: linear-gradient(135deg, #0f1419 0%, #1e3a5f 50%, #0f1419 100%);
+    --bg-secondary: rgba(15, 20, 25, 0.9);
+    --text-secondary: #87ceeb;
+    --accent-color: #4682b4;
+    --border-color: #87ceeb;
+    --shadow-color: rgba(135, 206, 235, 0.3);
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: "Georgia", serif;
-  background-color: #1a1a1a;
-  color: #f0e6d2;
+    font-family: 'Crimson Text', serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-attachment: fixed;
+    transition: all 0.5s ease;
+    opacity: 0;
 }
 
-header, footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #3e2723;
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-  font-size: 2rem;
-  color: gold;
+/* Header */
+.header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 3px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Estilos del menú de navegación */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2c2c;
-  padding: 1em 2em;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" opacity="0.1">🐉</text></svg>');
+    background-size: 100px 100px;
+    pointer-events: none;
 }
 
-.logo {
-  color: gold;
-  font-weight: bold;
-  font-size: 1.5rem;
-  font-family: 'Georgia', serif;
+#main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5em;
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: #f8f1e7;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.theme-button {
+    background: linear-gradient(45deg, var(--accent-color), #a0522d);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    position: relative;
+    z-index: 1;
 }
 
-.nav-links li a:hover {
-  color: crimson;
-}
-main {
-  padding: 2em;
-}
-
-.videojuego {
-  margin-bottom: 2em;
-  background-color: #2c2c2c;
-  padding: 1em;
-  border-radius: 8px;
+.theme-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    background: linear-gradient(45deg, #a0522d, var(--accent-color));
 }
 
-.videojuego img {
-  max-width: 100%;
-  border: 2px solid #555;
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
-button {
-  display: block;
-  margin: 2em auto;
-  padding: 1em 2em;
-  font-size: 1rem;
-  background-color: #a83232;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.games-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-button:hover {
-  background-color: #7a1e1e;
+/* Games Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.game-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px var(--shadow-color);
+    border-color: var(--text-secondary);
+}
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 1.5rem;
+}
+
+.game-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.game-description {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.game-genre {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--text-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Add Game Section */
+.add-game-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.add-game-button {
+    background: linear-gradient(45deg, var(--border-color), #ffd700);
+    color: #1a1a1a;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
+}
+
+.add-game-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(45deg, #ffd700, var(--border-color));
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 3px solid var(--border-color);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.footer-quote {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-houses {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.footer-houses span {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-houses span:hover {
+    color: var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #main-title {
+        font-size: 2rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .game-card {
+        margin: 0 0.5rem;
+    }
+    
+    .footer-houses {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    #main-title {
+        font-size: 1.8rem;
+    }
+    
+    .main-content {
+        padding: 1rem 0.5rem;
+    }
 }
