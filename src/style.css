@@ -146,6 +146,8 @@ body {
 /* Carrusel de imágenes */
 .carousel-section {
   display: flex;
+  width: 100vw;
+  height: 70vh;
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
@@ -153,7 +155,7 @@ body {
 
 .carousel {
   width: auto;
-  height: 450px;
+  height: 70vh;
   overflow: hidden;
   position: relative;
   border: 2px solid rgba(212, 175, 55, 0.3);
@@ -162,8 +164,8 @@ body {
 }
 
 .carousel-image {
-  width: auto;
-  height: 450px;
+  width: 100vw;
+  height: 69vh;
   display: none;
   border-radius: 12px;
   transition: opacity 0.5s ease;
