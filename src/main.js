@@ -14,11 +14,11 @@ const footer = document.createElement('footer')
 
 // Encabezado
 const titulo = document.createElement('h1')
-const imagen = document.createElement('img')
-imagen.src = 'https://sgimage.netmarble.com/images/netmarble/got/20241014/ockv1728906752798.png'
+const video = document.createElement('video')
+video.src = 'https://sgimage.netmarble.com/images/netmarble/got/20241014/ockv1728906752798.mp4'
 titulo.textContent = 'Explora los videojuegos de Game of Thrones'
 header.appendChild(titulo)
-header.appendChild(imagen)
+header.appendChild(video)
 
 // Barra de navegación
 nav.classList.add('navbar')
