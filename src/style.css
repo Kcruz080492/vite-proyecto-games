@@ -33,7 +33,7 @@ body {
     min-height: 100vh;
     background-attachment: fixed;
     transition: all 0.5s ease;
-    opacity: 0;
+    opacity: 1;
 }
 
 #app {
@@ -62,6 +62,43 @@ body {
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" opacity="0.1">🐉</text></svg>');
     background-size: 100px 100px;
     pointer-events: none;
+}
+
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-secondary);
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  font-family: 'Cinzel', serif;
+  z-index: 999;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
 }
 
 #main-title {
@@ -105,6 +142,44 @@ body {
     box-shadow: 0 6px 12px var(--shadow-color);
     background: linear-gradient(45deg, #a0522d, var(--accent-color));
 }
+
+/* Carrusel de imágenes */
+.carousel-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.carousel {
+  width: auto;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.carousel-image {
+  width: auto;
+  height: 450px;
+  display: none;
+  border-radius: 12px;
+  transition: opacity 0.5s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  
+}
+
+.carousel-image.active {
+  display: block;
+}
+
+
+
+
+
+
 
 /* Main Content */
 .main-content {
@@ -304,4 +379,18 @@ body {
     .main-content {
         padding: 1rem 0.5rem;
     }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 }
